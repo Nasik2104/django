@@ -3,6 +3,9 @@
 {% block content %}
     <h1>Welcome</h1>
     {% for i in menu %}
-    <a href="{% url 'about' %}">{{ i }}</a>
+    <a href="{% url 'blog:about' %}">{{ i }}</a>
+    {% endfor %}
+    {% for product, details in items.items %}
+        <p><a href="{% url 'blog:product' details.id %}">{{ product }}</a> | {{ details.id }} description: {{ details.description }}</p>
     {% endfor %}
 {% endblock %}
